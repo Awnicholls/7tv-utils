@@ -1,0 +1,117 @@
+name: 7TV Tools
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build-windows:
+    name: Build (Windows)
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Read version
+        id: meta
+        shell: pwsh
+        run: |
+          $ver = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          if (-not $ver) { throw "Could not read version from package.json" }
+          "version=$ver" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          Write-Host "Version $ver"
+
+      # PRs: build only. Pushes to main / manual runs: build, and publish
+      # if there is no release tag for this version yet.
+      - name: Decide whether to build or publish
+        id: gate
+        shell: pwsh
+        run: |
+          $tag = "v${{ steps.meta.outputs.version }}"
+          $build = $true
+          $publish = $false
+
+          if ("${{ github.event_name }}" -eq "pull_request") {
+            Write-Host "Pull request: build only."
+          } else {
+            $existing = git ls-remote --tags origin "refs/tags/$tag"
+            if ($LASTEXITCODE -ne 0) { throw "git ls-remote failed" }
+            if ($existing) {
+              $build = $false
+              Write-Host "$tag is already released. Bump the version in package.json to ship a new one."
+            } else {
+              $publish = $true
+              Write-Host "$tag not released yet: build and publish."
+            }
+          }
+
+          "build=$($build.ToString().ToLower())" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+          "publish=$($publish.ToString().ToLower())" | Out-File -FilePath $env:GITHUB_OUTPUT -Append -Encoding utf8
+
+      - uses: actions/setup-node@v7
+        if: steps.gate.outputs.build == 'true'
+        with:
+          node-version: 24
+
+      - name: Enable Corepack (Yarn 4)
+        if: steps.gate.outputs.build == 'true'
+        run: corepack enable
+
+      - name: Install
+        if: steps.gate.outputs.build == 'true'
+        run: yarn install --immutable
+
+      - name: Lint
+        if: steps.gate.outputs.build == 'true'
+        run: yarn lint
+
+      # Signing is optional. Without the secrets the .exe is built unsigned.
+      - name: Configure code signing
+        if: steps.gate.outputs.build == 'true' && github.event_name != 'pull_request'
+        shell: pwsh
+        env:
+          CERT: ${{ secrets.WIN_CSC_LINK }}
+          CERT_PASSWORD: ${{ secrets.WIN_CSC_KEY_PASSWORD }}
+        run: |
+          if ($env:CERT) {
+            "WIN_CSC_LINK=$env:CERT" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+            "WIN_CSC_KEY_PASSWORD=$env:CERT_PASSWORD" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+            Write-Host "Signing certificate found: the .exe will be signed."
+          } else {
+            Write-Host "No WIN_CSC_LINK secret: building unsigned."
+          }
+
+      - name: Build exe
+        if: steps.gate.outputs.build == 'true'
+        run: yarn dist:win
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: false
+
+      - name: Upload exe
+        if: steps.gate.outputs.build == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: 7tv-emote-copier-windows-v${{ steps.meta.outputs.version }}
+          path: release/7tv-emote-copier.exe
+          if-no-files-found: error
+
+      - name: Publish GitHub Release
+        if: steps.gate.outputs.publish == 'true'
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: v${{ steps.meta.outputs.version }}
+          name: 7TV Emote Copier v${{ steps.meta.outputs.version }}
+          generate_release_notes: true
+          target_commitish: ${{ github.sha }}
+          make_latest: true
+          fail_on_unmatched_files: true
+          files: release/7tv-emote-copier.exe
