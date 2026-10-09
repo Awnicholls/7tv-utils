@@ -4,30 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="add GitHub Actions workflow for building and publishing 7TV Tools">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/7tv-tools.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierignore" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierignore" afterDir="false" />
+    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="add core functionality for 7tv-utils with utility functions and components">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icon.icns" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/preload.cts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/preload.cts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/eslint.config.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screenshot.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/ipc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/seventv.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/global.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/global.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.electron.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.electron.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +18,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -47,73 +26,73 @@
     &quot;assignee&quot;: &quot;Awnicholls&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:Awnicholls/quiz-app.git&quot;,
-    &quot;accountId&quot;: &quot;791cb71f-ace0-474b-9ca7-d865668aca88&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Awnicholls/7tv-utils.git",
+    "accountId": "791cb71f-ace0-474b-9ca7-d865668aca88"
   }
-}</component>
+}]]></component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.6442837830474057" />
-      <entry key="MS500" value="3.6950755653803" />
-      <entry key="S2" value="6.508186375172842" />
-      <entry key="S5" value="9.793964698794897" />
-      <entry key="S10" value="11.922176747295312" />
-      <entry key="S30" value="13.844186802846135" />
-      <entry key="S60" value="14.404046888020062" />
-      <entry key="M2" value="14.69767983216887" />
-      <entry key="M5" value="15.045585279385595" />
-      <entry key="M10" value="16.30804233521543" />
-      <entry key="M15" value="17.785778094874196" />
-      <entry key="M30" value="21.346933599446277" />
-      <entry key="H1" value="25.419915141409053" />
-      <entry key="H2" value="28.855027256454044" />
-      <entry key="H4" value="31.158596798313276" />
-      <entry key="D1" value="33.483111768681944" />
-      <entry key="W1" value="33.92500938910745" />
+      <entry key="MS100" value="8.090181589532516E-51" />
+      <entry key="MS500" value="3.5896457178017995E-10" />
+      <entry key="S2" value="0.022986625522733777" />
+      <entry key="S5" value="0.8751206430625478" />
+      <entry key="S10" value="2.9635990683171136" />
+      <entry key="S30" value="6.862963219436012" />
+      <entry key="S60" value="8.611511779181312" />
+      <entry key="M2" value="9.705111322798208" />
+      <entry key="M5" value="10.454371272370182" />
+      <entry key="M10" value="10.722232362881215" />
+      <entry key="M15" value="10.813693624404337" />
+      <entry key="M30" value="10.906374229910009" />
+      <entry key="H1" value="11.007570576724467" />
+      <entry key="H2" value="12.313481777378179" />
+      <entry key="H4" value="17.695344269079655" />
+      <entry key="D1" value="36.91906288443048" />
+      <entry key="W1" value="43.70651767664596" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0000000092750359" />
+      <entry key="S2" value="1.0098136123526837" />
+      <entry key="S5" value="1.1573010275359938" />
+      <entry key="S10" value="1.3966119356953266" />
+      <entry key="S30" value="1.7347201092014553" />
+      <entry key="S60" value="1.857158158802362" />
+      <entry key="M2" value="1.9258283635762958" />
+      <entry key="M5" value="1.96964372806207" />
+      <entry key="M10" value="1.9847048938956635" />
+      <entry key="M15" value="1.9897770909425758" />
+      <entry key="M30" value="1.9948754147844725" />
+      <entry key="H1" value="1.99743441628233" />
+      <entry key="H2" value="1.9987163843065407" />
+      <entry key="H4" value="1.9993579860623223" />
+      <entry key="D1" value="1.9998929690420755" />
+      <entry key="W1" value="1.9999847091617422" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5918978022009311" />
-      <entry key="MS500" value="3.663428053513007" />
-      <entry key="S2" value="6.493461802452607" />
-      <entry key="S5" value="9.784520079974612" />
-      <entry key="S10" value="11.91627518473558" />
-      <entry key="S30" value="13.841861564237004" />
-      <entry key="S60" value="14.402831921994629" />
-      <entry key="M2" value="14.697058135074487" />
-      <entry key="M5" value="15.045242859896035" />
-      <entry key="M10" value="16.307564821090967" />
-      <entry key="M15" value="17.785230247644336" />
-      <entry key="M30" value="21.346431586037014" />
-      <entry key="H1" value="25.419569415087036" />
-      <entry key="H2" value="28.854823577380504" />
-      <entry key="H4" value="31.158486137133306" />
-      <entry key="D1" value="33.48309199170476" />
-      <entry key="W1" value="33.925006529655334" />
+      <entry key="MS100" value="4.49310376281677E-4" />
+      <entry key="MS500" value="0.21404707199984763" />
+      <entry key="S2" value="0.7078590195317775" />
+      <entry key="S5" value="1.8489717177686131" />
+      <entry key="S10" value="4.2308273123798426" />
+      <entry key="S30" value="8.536388020924983" />
+      <entry key="S60" value="10.434658968050705" />
+      <entry key="M2" value="11.612982468003102" />
+      <entry key="M5" value="12.416587905100384" />
+      <entry key="M10" value="12.703181617983814" />
+      <entry key="M15" value="12.800957496841006" />
+      <entry key="M30" value="12.899988276765695" />
+      <entry key="H1" value="13.004372373798583" />
+      <entry key="H2" value="14.311872486421839" />
+      <entry key="H4" value="19.694520240804582" />
+      <entry key="D1" value="38.91891416706137" />
+      <entry key="W1" value="45.70649586077782" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -201,7 +180,7 @@
       <option name="presentableId" value="Default" />
       <updated>1753878179654</updated>
       <workItem from="1791466688606" duration="296000" />
-      <workItem from="1791466999722" duration="12634000" />
+      <workItem from="1791466999722" duration="12975000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with essential files and configurations">
       <option name="closed" value="true" />
@@ -219,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791476069642</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add core functionality for 7tv-utils with utility functions and components">
+      <option name="closed" value="true" />
+      <created>1791504838498</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1791504838498</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +230,7 @@
     </ignored-roots>
     <MESSAGE value="initialize project structure with essential files and configurations" />
     <MESSAGE value="add GitHub Actions workflow for building and publishing 7TV Tools" />
-    <option name="LAST_COMMIT_MESSAGE" value="add GitHub Actions workflow for building and publishing 7TV Tools" />
+    <MESSAGE value="add core functionality for 7tv-utils with utility functions and components" />
+    <option name="LAST_COMMIT_MESSAGE" value="add core functionality for 7tv-utils with utility functions and components" />
   </component>
 </project>
