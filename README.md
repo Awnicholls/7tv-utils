@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="app-icon.png" alt="7TV Emote Copier" width="120" height="120">
+  <img src="app-icon.jpg" alt="7tv-utils" width="120" height="120">
 </p>
 
-<h1 align="center">7TV Emote Copier</h1>
+<h1 align="center">7tv-utils</h1>
 
 <p align="center">
   Copy any <a href="https://7tv.app">7TV</a> emote set.<br>
@@ -10,15 +10,15 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/TaahDev/7tv-copy-emote-set/releases/latest"><img src="https://img.shields.io/github/v/release/TaahDev/7tv-copy-emote-set?style=flat-square" alt="Latest release"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/TaahDev/7tv-copy-emote-set?style=flat-square" alt="MIT License"></a>
+  <a href="https://github.com/Awnicholls/7tv-utils/releases/latest"><img src="https://img.shields.io/github/v/release/Awnicholls/7tv-utils?style=flat-square" alt="Latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Awnicholls/7tv-utils?style=flat-square" alt="MIT License"></a>
   <img src="https://img.shields.io/badge/platform-Windows-0078D4?style=flat-square" alt="Windows">
 </p>
 
 ---
 
 <p align="center">
-  <img src="screenshot.png" alt="7TV Emote Copier" width="512">
+  <img src="screenshot.png" alt="7tv-utils" width="512">
 </p>
 
 Paste a source set, pick your destination, paste your token, and copy. Pacing is automatic.
@@ -33,7 +33,7 @@ Paste a source set, pick your destination, paste your token, and copy. Pacing is
 
 ## Download
 
-- **Latest version:** [Releases](https://github.com/TaahDev/7tv-copy-emote-set/releases/latest) — `7tv-emote-copier.exe`
+- **Latest version:** [Releases](https://github.com/Awnicholls/7tv-utils/releases/latest) — `7tv-utils.exe`
 
 Download the `.exe` and run it. There is no installer.
 
@@ -41,7 +41,7 @@ Windows SmartScreen may warn that the publisher is unknown. That is expected: th
 
 ## Usage
 
-1. Open **7tv-emote-copier.exe**.
+1. Open **7tv-utils.exe**.
 2. **Source** — a set ID or URL like `https://7tv.app/emote-sets/…`
 3. **Destination** — the set you own (or can edit). Same ID or URL format.
 4. **Token** — your 7TV token (see below, or **How to get a token** in the app).
@@ -64,7 +64,7 @@ It is stored only on this device and is only sent to 7TV.
 4. Pacing adapts to the `x-ratelimit-<bucket>-remaining/reset` headers: AIMD batch size and gap, full-reset waits on `429`/`RATE_LIMIT_EXCEEDED`, exponential backoff with jitter for network and 5xx errors
 5. All network calls run in the Electron main process; the UI talks to it over a sandboxed preload bridge
 
-Core logic: [`shared/seventv.ts`](shared/seventv.ts). Electron: [`electron/`](electron). UI: [`src/App.tsx`](src/App.tsx).
+Core logic: [`electron/seventv/`](electron/seventv). Electron: [`electron/`](electron). UI: [`src/pages/Copier/`](src/pages/Copier).
 
 ## Development
 
@@ -74,7 +74,7 @@ Requires Node 22+ and Yarn 4 (`corepack enable`).
 yarn install
 yarn dev        # Vite + Electron with reload
 yarn lint
-yarn dist:win   # release/7tv-emote-copier.exe (portable)
+yarn dist:win   # release/7tv-utils.exe (portable)
 ```
 
 `yarn dist` builds for the current OS (dmg on macOS, AppImage on Linux).

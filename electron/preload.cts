@@ -1,8 +1,6 @@
-// Sandboxed preload: CommonJS, and may only require 'electron'. Channel names
-// mirror IPC in shared/ipc.ts (they cannot be imported at runtime here).
 import { contextBridge, ipcRenderer, type IpcRendererEvent } from 'electron';
 
-import type { BridgeApi, CopyEvent } from '../shared/ipc.js';
+import type { BridgeApi, CopyEvent } from './types/ipc.js';
 
 const api: BridgeApi = {
   cancelCopy: () => ipcRenderer.invoke('copy:cancel'),

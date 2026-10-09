@@ -1,8 +1,6 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
 
-// Strict CSP for the packaged app only (the dev server needs inline scripts
-// for React Refresh).
 const csp: Plugin = {
   apply: 'build',
   name: 'inject-csp',
@@ -19,8 +17,6 @@ const csp: Plugin = {
   ],
 };
 
-// Renderer only. The Electron main process is compiled by tsc
-// (tsconfig.electron.json) and loads dist/index.html from disk.
 export default defineConfig({
   base: './',
   build: {

@@ -1,12 +1,12 @@
 {
-  "name": "7tv-emote-copier",
+  "name": "7tv-utils",
   "version": "0.2.0",
-  "description": "Copy 7TV emote sets in one click. Apple-minimal desktop app (Electron + React).",
+  "description": "Copy 7TV emote sets in one click. Desktop app (Electron + React).",
   "type": "module",
   "main": "dist-electron/electron/main.js",
   "license": "MIT",
   "author": "",
-  "homepage": "https://github.com/TaahDev/7tv-copy-emote-set",
+  "homepage": "https://github.com/Awnicholls/7tv-utils",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "build": "tsc -b && vite build",
@@ -46,9 +46,9 @@
     "vite": "^8.3.0"
   },
   "build": {
-    "appId": "app.seventv.emotecopier",
-    "productName": "7TV Emote Copier",
-    "artifactName": "7tv-emote-copier-${version}-${os}-${arch}.${ext}",
+    "appId": "app.7tv-utils",
+    "productName": "7tv-utils",
+    "artifactName": "7tv-utils-${version}-${os}-${arch}.${ext}",
     "directories": {
       "output": "release",
       "buildResources": "build"
@@ -56,6 +56,7 @@
     "files": [
       "dist/**",
       "dist-electron/**",
+      "build/android-chrome-512x512.png",
       "!**/*.map",
       "!**/*.tsbuildinfo",
       "package.json"
@@ -73,29 +74,29 @@
       "target": [
         "portable"
       ],
-      "icon": "build/icon.ico"
+      "icon": "build/android-chrome-512x512.png"
     },
     "portable": {
-      "artifactName": "7tv-emote-copier.exe"
+      "artifactName": "7tv-utils.exe"
     },
     "mac": {
       "target": [
         "dmg"
       ],
       "category": "public.app-category.utilities",
-      "icon": "build/icon.icns"
+      "icon": "build/android-chrome-512x512.png"
     },
     "linux": {
       "target": [
         "AppImage"
       ],
       "category": "Utility",
-      "icon": "build/icon.png"
+      "icon": "build/android-chrome-512x512.png"
     }
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TaahDev/7tv-copy-emote-set.git"
+    "url": "https://github.com/Awnicholls/7tv-utils.git"
   },
   "keywords": [
     "7tv",

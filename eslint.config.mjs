@@ -25,8 +25,6 @@ export default tseslint.config(
       ecmaVersion: 2020,
       globals: globals.browser,
       parserOptions: {
-        // tsconfig.json is a solution file; the project service follows its
-        // references (app, node, electron) to type-check each file.
         projectService: true,
         tsconfigRootDir: import.meta.dirname,
       },
@@ -38,7 +36,7 @@ export default tseslint.config(
   eslintPluginUnicorn.configs['flat/recommended'],
   {
     rules: {
-      'no-unused-vars': 'off', // or "@typescript-eslint/no-unused-vars": "off",
+      'no-unused-vars': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unicorn/no-array-reverse': 'off',
       'unicorn/prefer-top-level-await': 'off',
@@ -54,8 +52,6 @@ export default tseslint.config(
       'unicorn/no-abusive-eslint-disable': 'off',
       'unicorn/expiring-todo-comments': 'off',
       'unicorn/filename-case': 'off',
-      // Off: these autofix by renaming identifiers, which leaks into prop
-      // and API shapes across files.
       'unicorn/consistent-boolean-name': 'off',
       'unicorn/name-replacements': 'off',
     },
@@ -65,8 +61,6 @@ export default tseslint.config(
   {
     settings: {
       react: {
-        // Pinned rather than 'detect': eslint-plugin-react's version
-        // detection calls context.getFilename(), removed in ESLint 10.
         version: '19.2',
       },
     },
@@ -76,9 +70,7 @@ export default tseslint.config(
   jsxA11y.flatConfigs.recommended,
   {
     rules: {
-      // TODO make error
       '@typescript-eslint/no-unnecessary-type-conversion': 'warn',
-      // TODO make error
       '@typescript-eslint/await-thenable': 'warn',
       'no-restricted-syntax': [
         'error',
@@ -87,8 +79,6 @@ export default tseslint.config(
           message: 'Dynamic import() is not allowed.',
         },
       ],
-      // Numbers stringify unambiguously; the rule is here to catch objects,
-      // null and undefined landing in a template.
       '@typescript-eslint/restrict-template-expressions': [
         'error',
         { allowNumber: true },
@@ -133,20 +123,26 @@ export default tseslint.config(
   },
   perfectionist.configs['recommended-alphabetical'],
   {
-    // Electron main/preload, shared core and build scripts run in Node.
-    files: ['electron/**', 'shared/**', 'scripts/**', 'vite.config.ts'],
+    files: ['electron/**', 'scripts/**', 'vite.config.ts'],
     languageOptions: {
       globals: { ...globals.node },
     },
+    rules: {
+      'no-console': 'off',
+    },
   },
   {
-    // Plain JS build scripts are not part of any tsconfig.
+    files: ['electron/seventv/**'],
+    rules: {
+      'no-await-in-loop': 'off',
+    },
+  },
+  {
     files: ['**/*.{js,mjs,cjs}'],
     extends: [tseslint.configs.disableTypeChecked],
     rules: {
       '@typescript-eslint/explicit-function-return-type': 'off',
       'no-console': 'off',
-      // These are CLI scripts; exiting with a status code is the point.
       'unicorn/no-process-exit': 'off',
     },
   },
@@ -159,6 +155,7 @@ export default tseslint.config(
       'README.md',
       'eslint.config.mjs',
       '.yarn/**',
+      'scratches/**',
     ],
   },
   eslintConfigPrettier

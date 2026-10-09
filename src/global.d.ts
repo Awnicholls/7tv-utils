@@ -1,9 +1,6 @@
-import type { BridgeApi } from '../shared/ipc';
+import type { BridgeApi } from '../electron/types/ipc';
 
 declare global {
-  /**
-   * Provided by electron/preload.cts. Undefined in a plain browser.
-   */
   var api: BridgeApi | undefined;
 }
 

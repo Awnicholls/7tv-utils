@@ -1,4 +1,3 @@
-# Ignore artifacts and generated code:
 node_modules
 **/node_modules
-
+scratches

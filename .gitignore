@@ -20,4 +20,6 @@ __pycache__/
 
 legacy/
 .yarn
-/scripts/
+/scratches/
+!/AGENTS.md
+/.idea/
