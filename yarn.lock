@@ -5,9 +5,9 @@ __metadata:
   version: 10
   cacheKey: 10
 
-"7tv-emote-copier@workspace:.":
+"7tv-utils@workspace:.":
   version: 0.0.0-use.local
-  resolution: "7tv-emote-copier@workspace:."
+  resolution: "7tv-utils@workspace:."
   dependencies:
     "@eslint/js": "npm:^10.0.1"
     "@types/node": "npm:^24.13.3"
