@@ -1,6 +1,6 @@
-import type { CopyProgress } from '../../electron/types/seventv';
+import type { JobProgress } from '../../electron/types/seventv';
 
-export const progressPercent = (progress: CopyProgress | null): number =>
+export const progressPercent = (progress: JobProgress | null): number =>
   progress && progress.total > 0
     ? Math.round((progress.done / progress.total) * 100)
     : 0;

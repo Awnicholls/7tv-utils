@@ -18,14 +18,14 @@ export const postBatch = ({
 }): Promise<Response> =>
   fetchWithTimeout(doFetch, `${API}/gql`, {
     body: JSON.stringify(
-      batch.map((item) => ({
+      batch.map(({ op }) => ({
         operationName: 'ChangeEmoteInSet',
         query: GQL_MUTATION,
         variables: {
-          action: 'ADD',
-          emote_id: item.emote.id,
+          action: op.action,
+          emote_id: op.emote.id,
           id: targetId,
-          name: item.emote.name,
+          name: op.emote.name,
         },
       }))
     ),

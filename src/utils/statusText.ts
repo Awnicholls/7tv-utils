@@ -1,9 +1,9 @@
-import type { CopyProgress } from '../../electron/types/seventv';
+import type { JobProgress } from '../../electron/types/seventv';
 
 import { formatSeconds } from '../../electron/utils/formatSeconds';
 
 export const statusText = (
-  progress: CopyProgress | null,
+  progress: JobProgress | null,
   busy: boolean,
   now: number
 ): string => {

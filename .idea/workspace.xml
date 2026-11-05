@@ -3,17 +3,62 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="add core functionality for 7tv-utils with utility functions and components">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="update yarn.lock to rename 7tv-emote-copier to 7tv-utils">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/constants/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/constants/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/constants/ipc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/constants/ipc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/ipc/registerIpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/ipc/registerIpc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/ipc/startCopy.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/preload.cts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/preload.cts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/seventv/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/seventv/copyEmotes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/copyEmotes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/seventv/planCopy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/planCopy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/seventv/postBatch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/postBatch.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/seventv/sortResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/sortResults.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/state.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/types/copier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/copier.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/types/ipc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/ipc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/types/seventv.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/seventv.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/window.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/window.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/Copier.container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/Copier.view.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/CopyActions.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/FailureList.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/LogConsole.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/ProgressPanel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/SetField.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/SetPreview.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/TokenField.container.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/TokenField.view.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/components/TokenGuide.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/useTokenField.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Copier/useCopier.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/types/copier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/copier.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/progressPercent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/progressPercent.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/statusText.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/statusText.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/summarizeResult.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/summarizeResult.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/summaryTone.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/summaryTone.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/alex/WebstormProjects/7tv-utils" value="3KR0bf5f4dQ0W0ashceDpXoyQDa" />
+    </persistenceIdMap>
+  </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="80" />
+    <option name="cachedIndexableFilesCount" value="2646" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -26,73 +71,76 @@
     &quot;assignee&quot;: &quot;Awnicholls&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Awnicholls/7tv-utils.git",
-    "accountId": "791cb71f-ace0-474b-9ca7-d865668aca88"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Awnicholls/7tv-utils.git&quot;,
+    &quot;accountId&quot;: &quot;791cb71f-ace0-474b-9ca7-d865668aca88&quot;
   }
-}]]></component>
+}</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="8.090181589532516E-51" />
-      <entry key="MS500" value="3.5896457178017995E-10" />
-      <entry key="S2" value="0.022986625522733777" />
-      <entry key="S5" value="0.8751206430625478" />
-      <entry key="S10" value="2.9635990683171136" />
-      <entry key="S30" value="6.862963219436012" />
-      <entry key="S60" value="8.611511779181312" />
-      <entry key="M2" value="9.705111322798208" />
-      <entry key="M5" value="10.454371272370182" />
-      <entry key="M10" value="10.722232362881215" />
-      <entry key="M15" value="10.813693624404337" />
-      <entry key="M30" value="10.906374229910009" />
-      <entry key="H1" value="11.007570576724467" />
-      <entry key="H2" value="12.313481777378179" />
-      <entry key="H4" value="17.695344269079655" />
-      <entry key="D1" value="36.91906288443048" />
-      <entry key="W1" value="43.70651767664596" />
+      <entry key="MS100" value="7.483207606962124E-5" />
+      <entry key="MS500" value="0.25110931640393214" />
+      <entry key="S2" value="1.2892226275015786" />
+      <entry key="S5" value="2.7969001963178353" />
+      <entry key="S10" value="5.334240963182082" />
+      <entry key="S30" value="12.048433630162593" />
+      <entry key="S60" value="16.95009976596409" />
+      <entry key="M2" value="22.169321239724976" />
+      <entry key="M5" value="28.49788902769359" />
+      <entry key="M10" value="31.775861753396743" />
+      <entry key="M15" value="33.0640021690176" />
+      <entry key="M30" value="34.467924993378766" />
+      <entry key="H1" value="35.26892796800218" />
+      <entry key="H2" value="36.90795120918489" />
+      <entry key="H4" value="42.42418404755667" />
+      <entry key="D1" value="61.8333588928871" />
+      <entry key="W1" value="68.6922292074486" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000000092750359" />
-      <entry key="S2" value="1.0098136123526837" />
-      <entry key="S5" value="1.1573010275359938" />
-      <entry key="S10" value="1.3966119356953266" />
-      <entry key="S30" value="1.7347201092014553" />
-      <entry key="S60" value="1.857158158802362" />
-      <entry key="M2" value="1.9258283635762958" />
-      <entry key="M5" value="1.96964372806207" />
-      <entry key="M10" value="1.9847048938956635" />
-      <entry key="M15" value="1.9897770909425758" />
-      <entry key="M30" value="1.9948754147844725" />
-      <entry key="H1" value="1.99743441628233" />
-      <entry key="H2" value="1.9987163843065407" />
-      <entry key="H4" value="1.9993579860623223" />
-      <entry key="D1" value="1.9998929690420755" />
-      <entry key="W1" value="1.9999847091617422" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000206070854756" />
+      <entry key="S5" value="1.0133538541627227" />
+      <entry key="S10" value="1.1155588960745562" />
+      <entry key="S30" value="1.4911929443595346" />
+      <entry key="S60" value="1.7883314599609517" />
+      <entry key="M2" value="2.2603481450370486" />
+      <entry key="M5" value="3.0067378720872737" />
+      <entry key="M10" value="3.431697223867146" />
+      <entry key="M15" value="3.602974786028388" />
+      <entry key="M30" value="3.7917770241029336" />
+      <entry key="H1" value="3.893334598771899" />
+      <entry key="H2" value="3.946012307269462" />
+      <entry key="H4" value="3.972840294376675" />
+      <entry key="D1" value="3.995450164964893" />
+      <entry key="W1" value="3.9993494525953586" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="4.49310376281677E-4" />
-      <entry key="MS500" value="0.21404707199984763" />
-      <entry key="S2" value="0.7078590195317775" />
-      <entry key="S5" value="1.8489717177686131" />
-      <entry key="S10" value="4.2308273123798426" />
-      <entry key="S30" value="8.536388020924983" />
-      <entry key="S60" value="10.434658968050705" />
-      <entry key="M2" value="11.612982468003102" />
-      <entry key="M5" value="12.416587905100384" />
-      <entry key="M10" value="12.703181617983814" />
-      <entry key="M15" value="12.800957496841006" />
-      <entry key="M30" value="12.899988276765695" />
-      <entry key="H1" value="13.004372373798583" />
-      <entry key="H2" value="14.311872486421839" />
-      <entry key="H4" value="19.694520240804582" />
-      <entry key="D1" value="38.91891416706137" />
-      <entry key="W1" value="45.70649586077782" />
+      <entry key="MS100" value="4.8388600697375853E-4" />
+      <entry key="MS500" value="0.4602912513169055" />
+      <entry key="S2" value="1.964499818094431" />
+      <entry key="S5" value="3.6525319447074085" />
+      <entry key="S10" value="6.340585674102408" />
+      <entry key="S30" value="13.473693447205296" />
+      <entry key="S60" value="18.69585218189386" />
+      <entry key="M2" value="24.40263090119994" />
+      <entry key="M5" value="31.49061265549072" />
+      <entry key="M10" value="35.199674516857364" />
+      <entry key="M15" value="36.66148707638599" />
+      <entry key="M30" value="38.256828863168906" />
+      <entry key="H1" value="39.16079089745557" />
+      <entry key="H2" value="40.853209925170376" />
+      <entry key="H4" value="46.396626358625" />
+      <entry key="D1" value="65.82873105119243" />
+      <entry key="W1" value="72.69156693506376" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -101,7 +149,6 @@
 }</component>
   <component name="ProjectId" id="3KPkemqy7zbaOXYf2jjaRmlsh00" />
   <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="openDirectoriesWithSingleClick" value="true" />
@@ -112,8 +159,10 @@
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/alex/WebstormProjects/7tv-utils&quot;,
@@ -180,7 +229,11 @@
       <option name="presentableId" value="Default" />
       <updated>1753878179654</updated>
       <workItem from="1791466688606" duration="296000" />
-      <workItem from="1791466999722" duration="12975000" />
+      <workItem from="1791466999722" duration="13595000" />
+      <workItem from="1791763176050" duration="904000" />
+      <workItem from="1792107467376" duration="4979000" />
+      <workItem from="1792204051755" duration="603000" />
+      <workItem from="1792707979451" duration="11621000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with essential files and configurations">
       <option name="closed" value="true" />
@@ -206,7 +259,23 @@
       <option name="project" value="LOCAL" />
       <updated>1791504838498</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add core functionality for 7tv-utils with utility functions and components">
+      <option name="closed" value="true" />
+      <created>1791505075689</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1791505075689</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update yarn.lock to rename 7tv-emote-copier to 7tv-utils">
+      <option name="closed" value="true" />
+      <created>1791505153202</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1791505153202</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,6 +300,8 @@
     <MESSAGE value="initialize project structure with essential files and configurations" />
     <MESSAGE value="add GitHub Actions workflow for building and publishing 7TV Tools" />
     <MESSAGE value="add core functionality for 7tv-utils with utility functions and components" />
-    <option name="LAST_COMMIT_MESSAGE" value="add core functionality for 7tv-utils with utility functions and components" />
+    <MESSAGE value="moved readme around" />
+    <MESSAGE value="update yarn.lock to rename 7tv-emote-copier to 7tv-utils" />
+    <option name="LAST_COMMIT_MESSAGE" value="update yarn.lock to rename 7tv-emote-copier to 7tv-utils" />
   </component>
 </project>

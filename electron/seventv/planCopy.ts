@@ -1,14 +1,24 @@
-import type { QueueItem } from '../types/copier.js';
-import type { CopyFailure, EmoteSet } from '../types/seventv.js';
+import type {
+  EmoteEntry,
+  EmoteOp,
+  EmoteSet,
+  JobFailure,
+} from '../types/seventv.js';
+
+export const addOp = (emote: EmoteEntry): EmoteOp => ({
+  action: 'ADD',
+  emote,
+  label: emote.name,
+});
 
 export const planCopy = (
   source: EmoteSet,
   target: EmoteSet
-): { queue: QueueItem[]; skipped: CopyFailure[] } => {
+): { ops: EmoteOp[]; skipped: JobFailure[] } => {
   const haveIds = new Set(target.emotes.map((e) => e.id));
   const haveNames = new Set(target.emotes.map((e) => e.name));
-  const skipped: CopyFailure[] = [];
-  const queue: QueueItem[] = [];
+  const skipped: JobFailure[] = [];
+  const ops: EmoteOp[] = [];
   for (const emote of source.emotes) {
     if (haveIds.has(emote.id)) {
       skipped.push({ error: 'Already in destination', name: emote.name });
@@ -18,8 +28,8 @@ export const planCopy = (
         name: emote.name,
       });
     } else {
-      queue.push({ attempts: 0, emote });
+      ops.push(addOp(emote));
     }
   }
-  return { queue, skipped };
+  return { ops, skipped };
 };

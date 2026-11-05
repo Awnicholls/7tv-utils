@@ -1,10 +1,12 @@
-import { BrowserWindow, nativeTheme } from 'electron';
+import { BrowserWindow, nativeTheme, screen } from 'electron';
 import { existsSync } from 'node:fs';
 
 import {
   APP_NAME,
   DARK_BACKGROUND,
   LIGHT_BACKGROUND,
+  MIN_WINDOW_HEIGHT,
+  MIN_WINDOW_WIDTH,
   WINDOW_HEIGHT,
   WINDOW_WIDTH,
 } from './constants/app.js';
@@ -30,6 +32,27 @@ const attachDevDiagnostics = (win: BrowserWindow): void => {
           `[dev] preload=${PRELOAD_PATH} exists=${existsSync(PRELOAD_PATH)} bridge=${String(kind)}`
         );
       });
+  });
+};
+
+/**
+ * Logs why the page died, if it does, and brings it back rather than
+ * leaving a blank window.
+ */
+const watchRenderer = (win: BrowserWindow): void => {
+  win.webContents.on('render-process-gone', (_e, details) => {
+    console.error(
+      `[renderer] process gone: ${details.reason} (exit code ${details.exitCode})`
+    );
+    if (details.reason !== 'clean-exit' && !win.isDestroyed()) {
+      win.webContents.reload();
+    }
+  });
+  win.webContents.on('unresponsive', () => {
+    console.error('[renderer] page stopped responding');
+  });
+  win.webContents.on('responsive', () => {
+    console.error('[renderer] page is responding again');
   });
 };
 
@@ -59,14 +82,18 @@ export const focusMainWindow = (): void => {
 };
 
 export const createWindow = (): void => {
+  const area = screen.getPrimaryDisplay().workAreaSize;
   const win = new BrowserWindow({
     backgroundColor: nativeTheme.shouldUseDarkColors
       ? DARK_BACKGROUND
       : LIGHT_BACKGROUND,
-    height: WINDOW_HEIGHT,
+    height: Math.max(
+      MIN_WINDOW_HEIGHT,
+      Math.min(WINDOW_HEIGHT, area.height - 60)
+    ),
     icon: ICON_PATH,
-    maximizable: false,
-    resizable: false,
+    minHeight: MIN_WINDOW_HEIGHT,
+    minWidth: MIN_WINDOW_WIDTH,
     show: false,
     title: APP_NAME,
     useContentSize: true,
@@ -77,7 +104,7 @@ export const createWindow = (): void => {
       sandbox: true,
       spellcheck: false,
     },
-    width: WINDOW_WIDTH,
+    width: Math.max(MIN_WINDOW_WIDTH, Math.min(WINDOW_WIDTH, area.width)),
   });
   state.mainWindow = win;
 
@@ -94,6 +121,7 @@ export const createWindow = (): void => {
   if (DEV_URL) {
     attachDevDiagnostics(win);
   }
+  watchRenderer(win);
   lockNavigation(win);
 
   void (DEV_URL ? win.loadURL(DEV_URL) : win.loadFile(INDEX_PATH));

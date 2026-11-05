@@ -1,12 +1,10 @@
-import type { CopyResult } from '../../electron/types/seventv';
+import type { JobResult } from '../../electron/types/seventv';
 
-export const summarizeResult = ({
-  copied,
-  failed,
-  skipped,
-  stoppedReason,
-}: CopyResult): string => {
-  const parts = [`${copied} copied`];
+export const summarizeResult = (
+  { applied, failed, skipped, stoppedReason }: JobResult,
+  verb: string
+): string => {
+  const parts = [`${applied} ${verb}`];
   if (skipped.length > 0) {
     parts.push(`${skipped.length} skipped`);
   }

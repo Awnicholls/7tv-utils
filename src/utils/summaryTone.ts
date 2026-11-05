@@ -1,6 +1,6 @@
-import type { Phase } from '../types/copier';
+import type { JobPhase } from '../types/copier';
 
-export const summaryTone = (phase: Phase): string => {
+export const summaryTone = (phase: JobPhase): string => {
   if (phase === 'error') {
     return 'err';
   }

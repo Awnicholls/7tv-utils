@@ -55,7 +55,7 @@ body {
 }
 .shell {
   width: 100%;
-  max-width: 680px;
+  max-width: 960px;
   max-height: 100%;
   text-align: center;
   overflow-x: hidden;
@@ -67,11 +67,11 @@ body {
 }
 
 .hero {
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1.05;
   letter-spacing: -0.03em;
   font-weight: 700;
-  margin: 0 0 24px;
+  margin: 0 0 18px;
 }
 .btn {
   appearance: none;
@@ -134,7 +134,8 @@ body {
 }
 .field input[type='text'],
 .field input[type='password'],
-.field input:not([type]) {
+.field input:not([type]),
+.field select {
   width: 100%;
   font: inherit;
   font-size: 15px;
@@ -145,7 +146,25 @@ body {
   padding: 12px 14px;
   outline: none;
 }
-.field input:focus {
+.field select {
+  appearance: none;
+  padding-right: 36px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) 50%,
+    calc(100% - 13px) 50%;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.field select:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.field input:focus,
+.field select:focus {
   border-color: var(--blue);
   box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.15);
 }
@@ -382,4 +401,382 @@ body {
 }
 .console .line.err {
   color: var(--danger);
+}
+
+.hint.warn {
+  color: var(--danger);
+}
+.link.danger {
+  color: var(--danger);
+}
+
+/* Tool tabs */
+.tabs {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 0 18px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.tab:hover:not(:disabled) {
+  color: var(--ink);
+}
+.tab.active {
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+}
+.tab:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.account-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: -8px 0 20px;
+  padding: 10px 14px;
+  font-size: 13px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.account-bar.loading {
+  color: var(--muted);
+}
+.account-bar.error {
+  color: var(--danger);
+}
+
+.tool {
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+
+.summary-links {
+  display: inline-flex;
+  gap: 14px;
+  margin-left: 12px;
+}
+
+/* Merge */
+.merge-pick {
+  position: relative;
+}
+.swap {
+  position: absolute;
+  left: 50%;
+  top: 34px;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 1;
+}
+.swap:hover:not(:disabled) {
+  color: var(--ink);
+  border-color: var(--muted);
+}
+.swap:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+.merge-summary {
+  margin: 0 0 16px;
+  padding: 12px 14px;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 14px;
+}
+.merge-summary p {
+  margin: 0;
+}
+.merge-summary .hint {
+  margin-top: 4px;
+}
+
+.conflicts,
+.trim {
+  margin: 0 0 14px;
+}
+.conflicts-head,
+.trim-head {
+  margin-bottom: 8px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.conflicts-head .preview-title,
+.trim-head .preview-title {
+  margin: 0;
+}
+.trim-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.trim-count.over {
+  color: var(--danger);
+}
+.trim-tools {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+.trim-tools input {
+  flex: 1;
+  min-width: 0;
+  font: inherit;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  outline: none;
+}
+.trim-tools input:focus {
+  border-color: var(--blue);
+}
+
+.emote-img {
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* Emote grids (merge and edit) */
+.tile-grid {
+  list-style: none;
+  margin: 0 0 8px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(104px, 1fr));
+  gap: 8px;
+  max-height: 58vh;
+  overflow-y: auto;
+  background: var(--wash);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.tile-grid .empty {
+  grid-column: 1 / -1;
+  padding: 8px;
+  margin: 0;
+}
+.tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px 6px 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  /* Lets the browser skip off-screen tiles in very large sets. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto 96px;
+}
+.tile input,
+.keep-both-name input {
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  font-size: 12.5px;
+  text-align: center;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 3px 4px;
+  outline: none;
+  text-overflow: ellipsis;
+}
+.tile input:hover:not(:disabled),
+.tile input:focus,
+.keep-both-name input {
+  border-color: var(--line);
+  background: var(--bg);
+}
+.tile input:focus,
+.keep-both-name input:focus {
+  border-color: var(--blue);
+}
+.tile-note {
+  font-size: 11px;
+  line-height: 1.2;
+  color: var(--muted);
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+}
+.tile.renamed input {
+  color: var(--blue);
+}
+.tile.removed {
+  opacity: 0.45;
+}
+.tile.removed input {
+  text-decoration: line-through;
+}
+.tile.invalid,
+.conflict-tile.invalid {
+  border-color: var(--danger);
+}
+.tile.invalid .tile-note,
+.conflict-tile.invalid .tile-note {
+  color: var(--danger);
+}
+.tile-x {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 22px;
+  height: 22px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+.tile-x:hover:not(:disabled) {
+  background: var(--wash);
+  color: var(--danger);
+}
+.tile.removed .tile-x:hover:not(:disabled) {
+  color: var(--blue);
+}
+.tile-badge {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  width: 16px;
+  text-align: center;
+  border-radius: 4px;
+  color: var(--muted);
+  background: var(--wash);
+}
+.tile-badge.secondary {
+  color: #fff;
+  background: var(--blue);
+}
+
+/* Merge duplicates */
+.conflict-grid {
+  grid-template-columns: repeat(auto-fill, minmax(196px, 1fr));
+}
+.conflict-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  content-visibility: auto;
+  contain-intrinsic-size: auto 150px;
+}
+.conflict-title {
+  max-width: 100%;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.conflict-picks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  width: 100%;
+}
+.pick {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px 6px;
+  font: inherit;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--muted);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0.55;
+}
+.pick:hover:not(:disabled) {
+  opacity: 0.85;
+}
+.pick.picked {
+  opacity: 1;
+  color: var(--ink);
+  border-color: var(--blue);
+  box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.15);
+}
+.pick:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
+}
+.keep-both {
+  font-size: 12.5px;
+}
+.keep-both-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.keep-both-name .link {
+  font-size: 12px;
+}
+
+/* Edit */
+.edit-summary {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0 0 4px;
+}
+
+.crash h2 {
+  margin: 0 0 8px;
+}
+.crash .btn {
+  margin-top: 16px;
 }

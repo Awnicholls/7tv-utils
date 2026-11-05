@@ -1,17 +1,23 @@
 import type { ReactNode } from 'react';
 
-import type { EmoteSet } from '../../../../electron/types/seventv';
+import type { EmoteSet } from '../../electron/types/seventv';
 
-import { PREVIEW_LIMIT } from '../../../constants';
+import { PREVIEW_LIMIT } from '../constants';
 
-export const SetPreview = ({ set }: { set: EmoteSet }): ReactNode => (
+export const SetPreview = ({
+  set,
+  title = 'Preview',
+}: {
+  set: EmoteSet;
+  title?: string;
+}): ReactNode => (
   <div className="preview">
     <p className="preview-title">
-      Source preview · first {Math.min(PREVIEW_LIMIT, set.emotes.length)}
+      {title} · first {Math.min(PREVIEW_LIMIT, set.emotes.length)}
     </p>
     <div className="chips">
       {set.emotes.slice(0, PREVIEW_LIMIT).map((e) => (
-        <span className="chip" key={e.id} title={e.id}>
+        <span className="chip" key={e.name} title={e.id}>
           {e.name}
         </span>
       ))}

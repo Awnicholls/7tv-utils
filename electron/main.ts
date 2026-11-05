@@ -15,8 +15,14 @@ if (!isPrimaryInstance) {
 app.on('second-instance', focusMainWindow);
 
 app.on('window-all-closed', () => {
-  state.activeCopy?.abort();
+  state.activeJob?.abort();
   app.quit();
+});
+
+app.on('child-process-gone', (_e, details) => {
+  console.error(
+    `[app] ${details.type} process gone: ${details.reason} (exit code ${details.exitCode})`
+  );
 });
 
 app.on('web-contents-created', (_e, contents) => {

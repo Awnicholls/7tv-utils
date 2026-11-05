@@ -15,7 +15,7 @@ const sortError = (
   item: QueueItem,
   errors: GqlError[]
 ): void => {
-  const name = item.emote.name;
+  const name = item.op.label;
   const message = errors.map((e) => e.message ?? 'Unknown error').join('; ');
   switch (classifyErrors(errors)) {
     case 'auth': {
@@ -27,7 +27,12 @@ const sortError = (
       return;
     }
     case 'conflict': {
-      out.skipped.push({ error: message, name });
+      // Adding something that is already there is harmless; a rename that
+      // collides with another emote's name is a real failure.
+      (item.op.action === 'ADD' ? out.skipped : out.failed).push({
+        error: message,
+        name,
+      });
       return;
     }
     case 'forbidden': {
@@ -62,7 +67,7 @@ export const sortResults = (
   results: unknown[]
 ): BatchOutcome => {
   const out: BatchOutcome = {
-    copied: 0,
+    applied: 0,
     failed: [],
     forbidden: 0,
     full: false,
@@ -74,7 +79,7 @@ export const sortResults = (
   for (const [i, item] of batch.entries()) {
     const errors = (results[i] as { errors?: GqlError[] } | undefined)?.errors;
     if (!errors || errors.length === 0) {
-      out.copied += 1;
+      out.applied += 1;
     } else {
       sortError(out, item, errors);
     }

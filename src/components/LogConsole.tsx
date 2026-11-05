@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
 
-import type { LogLine } from '../../../types/copier';
+import type { LogLine } from '../types/copier';
 
-import { VISIBLE_LOG_LINES } from '../../../constants';
+import { VISIBLE_LOG_LINES } from '../constants';
 
 export const LogConsole = ({ lines }: { lines: LogLine[] }): ReactNode => (
   <div aria-label="Log" className="console">

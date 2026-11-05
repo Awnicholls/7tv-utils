@@ -15,6 +15,8 @@ export const REQUEST_TIMEOUT_MS = 30_000;
 export const TOKEN_INVALID_MESSAGE =
   'Your token is invalid or expired. Use “Get from browser” to refresh it.';
 export const SET_FULL_MESSAGE = 'Destination set is full';
+export const MISSING_TOKEN_MESSAGE =
+  'Enter your 7TV token, or use “Get from browser”.';
 
 export const GQL_MUTATION = `mutation ChangeEmoteInSet($id: ObjectID!, $action: ListItemAction!, $emote_id: ObjectID!, $name: String) {
   emoteSet(id: $id) {
@@ -22,6 +24,33 @@ export const GQL_MUTATION = `mutation ChangeEmoteInSet($id: ObjectID!, $action: 
     emotes(id: $emote_id, action: $action, name: $name) {
       id
       name
+      __typename
+    }
+    __typename
+  }
+}`;
+
+export const GQL_CREATE_SET = `mutation CreateEmoteSet($user_id: ObjectID!, $data: CreateEmoteSetInput!) {
+  createEmoteSet(user_id: $user_id, data: $data) {
+    id
+    name
+    capacity
+    __typename
+  }
+}`;
+
+export const GQL_USER_SETS = `query UserEmoteSets($id: ObjectID!) {
+  user(id: $id) {
+    id
+    display_name
+    emote_sets {
+      id
+      name
+      capacity
+      __typename
+    }
+    connections {
+      emote_set_id
       __typename
     }
     __typename

@@ -1,17 +1,19 @@
 import type { ReactNode } from 'react';
 
-import type { CopyProgress } from '../../../../electron/types/seventv';
+import type { JobProgress } from '../../electron/types/seventv';
 
 interface ProgressPanelProps {
   percent: number;
-  progress: CopyProgress | null;
+  progress: JobProgress | null;
   status: string;
+  verb: string;
 }
 
 export const ProgressPanel = ({
   percent,
   progress,
   status,
+  verb,
 }: ProgressPanelProps): ReactNode => (
   <div className="progress" role="status">
     <div className="row">
@@ -26,7 +28,7 @@ export const ProgressPanel = ({
     </div>
     {progress && (
       <p className="hint">
-        {progress.copied} copied · {progress.skipped} skipped ·{' '}
+        {progress.applied} {verb} · {progress.skipped} skipped ·{' '}
         {progress.failed} failed · {progress.total} total
       </p>
     )}

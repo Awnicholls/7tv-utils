@@ -1,7 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import { CopierContainer } from './pages/Copier/Copier.container';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { WorkspaceContainer } from './pages/Workspace/Workspace.container';
 import './styles.css';
 
 const root = document.querySelector('#root');
@@ -11,6 +12,8 @@ if (!root) {
 
 createRoot(root).render(
   <StrictMode>
-    <CopierContainer />
+    <ErrorBoundary>
+      <WorkspaceContainer />
+    </ErrorBoundary>
   </StrictMode>
 );

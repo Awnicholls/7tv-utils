@@ -1,14 +1,14 @@
-import type { CopyFailure, EmoteEntry } from './seventv.js';
+import type { EmoteEntry, EmoteOp, JobFailure } from './seventv.js';
 
 export interface BatchOutcome {
-  copied: number;
-  failed: CopyFailure[];
+  applied: number;
+  failed: JobFailure[];
   forbidden: number;
   full: boolean;
   limited: boolean;
   limitReset: null | number;
   retry: QueueItem[];
-  skipped: CopyFailure[];
+  skipped: JobFailure[];
 }
 
 export type ErrorKind =
@@ -40,7 +40,7 @@ export interface Pace {
 
 export interface QueueItem {
   attempts: number;
-  emote: EmoteEntry;
+  op: EmoteOp;
 }
 
 export interface RateHint {
@@ -57,3 +57,11 @@ export interface SetResponse {
 }
 
 export type StatusAction = 'limited' | 'ok' | 'shrink' | 'transient';
+
+export interface UserResponse {
+  connections?: { emote_set_id?: null | string }[] | null;
+  display_name?: string;
+  emote_sets?: { capacity?: number; id: string; name?: string }[] | null;
+  id?: string;
+  username?: string;
+}
