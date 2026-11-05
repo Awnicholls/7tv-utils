@@ -1,6 +1,6 @@
 {
   "name": "7tv-utils",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Copy 7TV emote sets in one click. Desktop app (Electron + React).",
   "type": "module",
   "main": "dist-electron/electron/main.js",
