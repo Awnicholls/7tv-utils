@@ -7,45 +7,8 @@
     <option name="selectedModelId" value="auto" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="update yarn.lock to rename 7tv-emote-copier to 7tv-utils">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/constants/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/constants/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/constants/ipc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/constants/ipc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/ipc/registerIpc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/ipc/registerIpc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/ipc/startCopy.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/preload.cts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/preload.cts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/seventv/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/seventv/copyEmotes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/copyEmotes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/seventv/planCopy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/planCopy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/seventv/postBatch.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/postBatch.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/seventv/sortResults.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/seventv/sortResults.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/state.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/state.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/types/copier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/copier.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/types/ipc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/ipc.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/types/seventv.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/types/seventv.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/electron/window.ts" beforeDir="false" afterPath="$PROJECT_DIR$/electron/window.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/Copier.container.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/Copier.view.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/CopyActions.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/FailureList.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/LogConsole.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/ProgressPanel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/SetField.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/SetPreview.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/TokenField.container.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/TokenField.view.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/components/TokenGuide.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/components/TokenField/useTokenField.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Copier/useCopier.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/types/copier.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/types/copier.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/progressPercent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/progressPercent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/statusText.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/statusText.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/summarizeResult.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/summarizeResult.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/summaryTone.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/summaryTone.ts" afterDir="false" />
+    <list default="true" id="acc801d1-7157-4a22-9297-8d60bc70e3dd" name="Changes" comment="add core functionality for job management and emote operations">
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +196,7 @@
       <workItem from="1791763176050" duration="904000" />
       <workItem from="1792107467376" duration="4979000" />
       <workItem from="1792204051755" duration="603000" />
-      <workItem from="1792707979451" duration="11621000" />
+      <workItem from="1792707979451" duration="12243000" />
     </task>
     <task id="LOCAL-00001" summary="initialize project structure with essential files and configurations">
       <option name="closed" value="true" />
@@ -275,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1791505153202</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add core functionality for job management and emote operations">
+      <option name="closed" value="true" />
+      <created>1793878846175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1793878846175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,6 +273,7 @@
     <MESSAGE value="add core functionality for 7tv-utils with utility functions and components" />
     <MESSAGE value="moved readme around" />
     <MESSAGE value="update yarn.lock to rename 7tv-emote-copier to 7tv-utils" />
-    <option name="LAST_COMMIT_MESSAGE" value="update yarn.lock to rename 7tv-emote-copier to 7tv-utils" />
+    <MESSAGE value="add core functionality for job management and emote operations" />
+    <option name="LAST_COMMIT_MESSAGE" value="add core functionality for job management and emote operations" />
   </component>
 </project>

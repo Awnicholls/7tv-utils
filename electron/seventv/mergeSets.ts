@@ -3,7 +3,7 @@ import type { EmoteOp, JobOptions, JobResult } from '../types/seventv.js';
 
 import { parseSetId } from '../utils/parseSetId.js';
 import { requireBearer } from '../utils/requireBearer.js';
-import { tokenUserId } from '../utils/tokenUserId.js';
+import { resolveOwner } from '../utils/resolveOwner.js';
 import { CopyError } from './CopyError.js';
 import { createEmoteSet } from './createEmoteSet.js';
 import { getEmoteSet } from './getEmoteSet.js';
@@ -26,8 +26,8 @@ export const mergeSets = async (
   }
 
   log?.('info', 'Loading both sets…');
-  const primary = await getEmoteSet(req.primary, opts);
-  const secondary = await getEmoteSet(req.secondary, opts);
+  const primary = await getEmoteSet(req.primary, { ...opts, bearer });
+  const secondary = await getEmoteSet(req.secondary, { ...opts, bearer });
   const plan = planMerge(primary.emotes, secondary.emotes, {
     choices: req.choices,
     exclude: req.exclude,
@@ -87,10 +87,7 @@ export const mergeSets = async (
     );
   }
 
-  const userId = tokenUserId(bearer);
-  if (!userId) {
-    throw new CopyError('That does not look like a 7TV token.');
-  }
+  const userId = resolveOwner(req.ownerId, bearer);
   const created = await createEmoteSet(
     bearer,
     userId,

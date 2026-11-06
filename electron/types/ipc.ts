@@ -10,7 +10,10 @@ import type {
 export interface BridgeApi {
   cancelJob: () => Promise<void>;
   forgetToken: () => Promise<void>;
-  loadAccount: (token: string) => Promise<IpcResult<Account>>;
+  /**
+  The token's own account, or `userId`'s when acting as their editor.
+  */
+  loadAccount: (token: string, userId?: string) => Promise<IpcResult<Account>>;
   loadSet: (input: string) => Promise<IpcResult<EmoteSet>>;
   loadToken: () => Promise<string>;
   onJobEvent: (cb: (e: JobEvent) => void) => () => void;
@@ -22,6 +25,10 @@ export interface BridgeApi {
 export interface CloneRequest {
   kind: 'clone';
   name: string;
+  /**
+  Account to create the set on; defaults to the token's own.
+  */
+  ownerId?: string;
   source: string;
   token: string;
 }
@@ -78,6 +85,10 @@ export interface MergeRequest {
   exclude: string[];
   kind: 'merge';
   name: string;
+  /**
+  Account to create a new set on; defaults to the token's own.
+  */
+  ownerId?: string;
   primary: string;
   /**
   New names, keyed by candidate key.

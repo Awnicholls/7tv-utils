@@ -24,7 +24,7 @@ export const copyEmotes = async (
     throw new CopyError('Source and destination are the same set.');
   }
   const bearer = requireBearer(token);
-  const target = await getEmoteSet(targetId, opts);
+  const target = await getEmoteSet(targetId, { ...opts, bearer });
   const { ops, skipped } = planCopy(source, target);
 
   if (skipped.length > 0) {

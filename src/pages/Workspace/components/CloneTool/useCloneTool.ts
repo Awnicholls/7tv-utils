@@ -32,7 +32,10 @@ export const useCloneTool = ({
   );
 
   const start = async (): Promise<void> => {
-    const result = await job.run({ kind: 'clone', name, source }, 'copied');
+    const result = await job.run(
+      { kind: 'clone', name, ownerId: account?.id, source },
+      'copied'
+    );
     if (result) {
       onCreated();
     }

@@ -48,7 +48,7 @@ export const SetSelect = ({
         value={value}
       >
         <option value="">
-          {account ? 'Choose one of your sets…' : 'Add your token first'}
+          {account ? 'Choose a set…' : 'Add your token first'}
         </option>
         {value && !isListed && (
           <option value={value}>{currentName ?? value}</option>

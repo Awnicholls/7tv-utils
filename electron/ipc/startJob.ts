@@ -16,6 +16,7 @@ import { editSet } from '../seventv/editSet.js';
 import { getEmoteSet } from '../seventv/getEmoteSet.js';
 import { mergeSets } from '../seventv/mergeSets.js';
 import { state } from '../state.js';
+import { normalizeToken } from '../utils/normalizeToken.js';
 import { toIpcResult } from '../utils/toIpcResult.js';
 
 const runCopy = async (
@@ -23,7 +24,10 @@ const runCopy = async (
   opts: JobOptions
 ): Promise<JobResult> => {
   opts.onLog?.('info', 'Loading source set…');
-  const source = await getEmoteSet(req.source, opts);
+  const source = await getEmoteSet(req.source, {
+    ...opts,
+    bearer: normalizeToken(req.token),
+  });
   opts.onLog?.(
     'ok',
     `Found “${source.name}” with ${source.emotes.length} emotes.`

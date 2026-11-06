@@ -6,7 +6,8 @@ import type { BridgeApi, JobEvent } from './types/ipc.js';
 const api: BridgeApi = {
   cancelJob: () => ipcRenderer.invoke('job:cancel'),
   forgetToken: () => ipcRenderer.invoke('token:forget'),
-  loadAccount: (token) => ipcRenderer.invoke('account:load', token),
+  loadAccount: (token, userId) =>
+    ipcRenderer.invoke('account:load', token, userId),
   loadSet: (input) => ipcRenderer.invoke('set:load', input),
   loadToken: () => ipcRenderer.invoke('token:load'),
   onJobEvent: (cb) => {

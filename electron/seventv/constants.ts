@@ -56,3 +56,20 @@ export const GQL_USER_SETS = `query UserEmoteSets($id: ObjectID!) {
     __typename
   }
 }`;
+
+export const GQL_EDITOR_OF = `query UserEditorOf($id: ObjectID!) {
+  user(id: $id) {
+    id
+    editor_of {
+      id
+      user {
+        id
+        username
+        display_name
+        __typename
+      }
+      __typename
+    }
+    __typename
+  }
+}`;

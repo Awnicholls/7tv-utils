@@ -8,7 +8,14 @@ import { getApi } from '../utils/getApi';
 
 export interface AccountControls {
   refreshAccount: () => void;
-  state: AccountState;
+  /**
+  The token's own account, with the accounts it edits for.
+  */
+  self: AccountState;
+  /**
+  The account being edited for; idle when working on your own.
+  */
+  target: AccountState;
 }
 
 export type AccountState =
@@ -18,30 +25,34 @@ export type AccountState =
   | { status: 'loading' };
 
 /**
-The account the current token signs in as, with its emote sets.
-*/
-export const useAccount = (token: string): AccountControls => {
-  const bearer = normalizeToken(token);
-  // Remember which token a result belongs to, so switching tokens never
-  // shows the previous account while the new one loads.
-  const [loaded, setLoaded] = useState<{ bearer: string; state: AccountState }>(
-    { bearer: '', state: { status: 'idle' } }
-  );
-  const [version, setVersion] = useState(0);
+ * Loads one account. Results remember which token and user they belong to,
+ * so switching either never shows the previous account while loading.
+ */
+const useAccountQuery = (
+  bearer: string,
+  userId: string,
+  version: number,
+  enabled: boolean
+): AccountState => {
+  const key = `${bearer}|${userId}`;
+  const [loaded, setLoaded] = useState<{ key: string; state: AccountState }>({
+    key: '',
+    state: { status: 'idle' },
+  });
 
   useEffect(() => {
     const api = getApi();
-    if (!api || !bearer) {
+    if (!api || !bearer || !enabled) {
       return;
     }
     let stale = false;
     const timer = setTimeout(() => {
-      void api.loadAccount(bearer).then((res) => {
+      void api.loadAccount(bearer, userId).then((res) => {
         if (stale) {
           return;
         }
         setLoaded({
-          bearer,
+          key: `${bearer}|${userId}`,
           state: res.ok
             ? { account: res.value, status: 'ok' }
             : { error: res.error, status: 'error' },
@@ -52,17 +63,33 @@ export const useAccount = (token: string): AccountControls => {
       stale = true;
       clearTimeout(timer);
     };
-  }, [bearer, version]);
+  }, [bearer, userId, version, enabled]);
 
-  let state: AccountState = { status: 'idle' };
-  if (bearer) {
-    state = loaded.bearer === bearer ? loaded.state : { status: 'loading' };
+  if (!bearer || !enabled) {
+    return { status: 'idle' };
   }
+  return loaded.key === key ? loaded.state : { status: 'loading' };
+};
+
+export const useAccount = (
+  token: string,
+  actingFor: string
+): AccountControls => {
+  const bearer = normalizeToken(token);
+  const [version, setVersion] = useState(0);
+  const self = useAccountQuery(bearer, '', version, true);
+  const target = useAccountQuery(
+    bearer,
+    actingFor,
+    version,
+    Boolean(actingFor)
+  );
 
   return {
     refreshAccount: () => {
       setVersion((v) => v + 1);
     },
-    state,
+    self,
+    target,
   };
 };

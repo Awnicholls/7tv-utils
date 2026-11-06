@@ -19,6 +19,6 @@ export const SET_NAME_LIMIT = 40;
 export const TOOLS: { headline: string; id: ToolId; label: string }[] = [
   { headline: 'Copy any 7TV set.', id: 'copy', label: 'Copy' },
   { headline: 'Clone a set to your account.', id: 'clone', label: 'Clone' },
-  { headline: 'Merge two of your sets.', id: 'merge', label: 'Merge' },
+  { headline: 'Merge two sets.', id: 'merge', label: 'Merge' },
   { headline: 'Rename or remove emotes.', id: 'edit', label: 'Edit' },
 ];

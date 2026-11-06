@@ -38,6 +38,7 @@ export const getEmoteSet = async (
     let res: Response;
     try {
       res = await fetchWithTimeout(doFetch, `${API}/emote-sets/${id}`, {
+        headers: opts.bearer ? { Authorization: `Bearer ${opts.bearer}` } : {},
         signal,
       });
     } catch (error) {

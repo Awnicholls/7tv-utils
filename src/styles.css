@@ -780,3 +780,63 @@ body {
 .crash .btn {
   margin-top: 16px;
 }
+
+/* Account picker */
+.account-bar.ok {
+  display: block;
+}
+.account-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.account-row.acting {
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+.account-row.acting label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.account-row select,
+.account-row input {
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 5px 8px;
+  outline: none;
+  min-width: 0;
+}
+.account-row select:focus,
+.account-row input:focus {
+  border-color: var(--blue);
+}
+.account-row.other {
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+.account-row.other input {
+  flex: 1;
+}
+.acting-status {
+  color: var(--muted);
+}
+.acting-status.err,
+.other-error {
+  color: var(--danger);
+}
+.other-error {
+  margin: 0;
+}
+.acting-note {
+  margin: 8px 0 0;
+  font-size: 12.5px;
+}
+.btn.small {
+  padding: 6px 14px;
+  font-size: 13px;
+}

@@ -1,13 +1,12 @@
 import type { ReactNode } from 'react';
 
 import type { Account } from '../../../electron/types/seventv';
-import type { AccountState } from '../../hooks/useAccount';
 import type { JobControls, JobView } from '../../hooks/useJob';
 import type { ToolId } from '../../types/copier';
 
 import { JobPanel } from '../../components/JobPanel';
 import { TOOLS } from '../../constants';
-import { AccountBar } from './components/AccountBar';
+import { AccountBar, type AccountBarProps } from './components/AccountBar';
 import { CloneToolContainer } from './components/CloneTool/CloneTool.container';
 import { CopyToolContainer } from './components/CopyTool/CopyTool.container';
 import { EditToolContainer } from './components/EditTool/EditTool.container';
@@ -17,7 +16,8 @@ import { TokenFieldContainer } from './components/TokenField/TokenField.containe
 
 export interface WorkspaceViewProps {
   account: Account | null;
-  accountState: AccountState;
+  accountBar: AccountBarProps;
+  actingFor: string;
   busy: boolean;
   editSeed: { id: string; key: number };
   job: JobControls;
@@ -36,7 +36,8 @@ export interface WorkspaceViewProps {
 
 export const WorkspaceView = ({
   account,
-  accountState,
+  accountBar,
+  actingFor,
   busy,
   editSeed,
   job,
@@ -81,11 +82,7 @@ export const WorkspaceView = ({
             onForget={onForgetToken}
             token={token}
           />
-          <AccountBar
-            busy={busy}
-            onRefresh={onRefreshAccount}
-            state={accountState}
-          />
+          <AccountBar {...accountBar} />
 
           <div className="tool">
             {panel('copy', <CopyToolContainer job={job} onCancel={onCancel} />)}
@@ -94,6 +91,7 @@ export const WorkspaceView = ({
               <CloneToolContainer
                 account={account}
                 job={job}
+                key={actingFor}
                 onCancel={onCancel}
                 onCreated={created}
               />
@@ -103,6 +101,7 @@ export const WorkspaceView = ({
               <MergeToolContainer
                 account={account}
                 job={job}
+                key={actingFor}
                 onCancel={onCancel}
                 onCreated={created}
               />
@@ -113,7 +112,7 @@ export const WorkspaceView = ({
                 account={account}
                 initialSetId={editSeed.id}
                 job={job}
-                key={editSeed.key}
+                key={`${actingFor}:${editSeed.key}`}
                 onCancel={onCancel}
               />
             )}

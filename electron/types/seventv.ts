@@ -1,8 +1,17 @@
 export interface Account {
   activeSetIds: string[];
   displayName: string;
+  /**
+  Accounts this one is an editor for (only filled for the token's own).
+  */
+  editorOf: AccountRef[];
   id: string;
   sets: SetSummary[];
+}
+
+export interface AccountRef {
+  displayName: string;
+  id: string;
 }
 
 export type EmoteAction = 'ADD' | 'REMOVE' | 'UPDATE';
@@ -30,6 +39,10 @@ export interface EmoteSet {
 }
 
 export interface GetEmoteSetOptions {
+  /**
+  Sent when present, so sets only the signed-in user may see still load.
+  */
+  bearer?: string;
   fetch?: typeof fetch;
   signal?: AbortSignal;
   sleep?: Sleep;

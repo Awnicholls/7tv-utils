@@ -61,6 +61,16 @@ export type StatusAction = 'limited' | 'ok' | 'shrink' | 'transient';
 export interface UserResponse {
   connections?: { emote_set_id?: null | string }[] | null;
   display_name?: string;
+  editor_of?:
+    | {
+        id?: string;
+        user?: {
+          display_name?: string;
+          id?: string;
+          username?: string;
+        } | null;
+      }[]
+    | null;
   emote_sets?: { capacity?: number; id: string; name?: string }[] | null;
   id?: string;
   username?: string;

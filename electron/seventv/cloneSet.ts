@@ -2,7 +2,7 @@ import type { CloneRequest } from '../types/ipc.js';
 import type { JobOptions, JobResult } from '../types/seventv.js';
 
 import { requireBearer } from '../utils/requireBearer.js';
-import { tokenUserId } from '../utils/tokenUserId.js';
+import { resolveOwner } from '../utils/resolveOwner.js';
 import { CopyError } from './CopyError.js';
 import { createEmoteSet } from './createEmoteSet.js';
 import { getEmoteSet } from './getEmoteSet.js';
@@ -18,13 +18,10 @@ export const cloneSet = async (
 ): Promise<JobResult> => {
   const log = opts.onLog;
   const bearer = requireBearer(req.token);
-  const userId = tokenUserId(bearer);
-  if (!userId) {
-    throw new CopyError('That does not look like a 7TV token.');
-  }
+  const userId = resolveOwner(req.ownerId, bearer);
 
   log?.('info', 'Loading source set…');
-  const source = await getEmoteSet(req.source, opts);
+  const source = await getEmoteSet(req.source, { ...opts, bearer });
   if (source.emotes.length === 0) {
     throw new CopyError('The source set is empty.');
   }

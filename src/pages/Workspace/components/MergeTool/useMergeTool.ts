@@ -170,6 +170,7 @@ export const useMergeTool = ({
         exclude: [...excluded],
         kind: 'merge',
         name,
+        ownerId: account?.id,
         primary: primaryId,
         renames,
         secondary: secondaryId,
